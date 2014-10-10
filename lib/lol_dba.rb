@@ -124,7 +124,7 @@ EOM
             foreign_key = get_through_foreign_key(class_name, reflection_options)
 
             if reflection_options.options[:source]
-              association_class = through_class.reflections[reflection_options.options[:source]].klass
+              association_class = through_class.reflections[reflection_options.options[:source].to_sym].klass
               association_foreign_key = get_through_foreign_key(association_class, reflection_options)
             else
               # go to joining model through has_many and find belongs_to
